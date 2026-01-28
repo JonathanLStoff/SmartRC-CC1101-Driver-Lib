@@ -118,7 +118,7 @@ private:
   void SpiEnd(void);
   void GDO_Set (void);
   void GDO0_Set (void);
-  void Reset (void);
+  void Reset (SerialUSB Serial);
   void setSpi(void);
   void RegConfigSettings(void);
   void Calibrate(void);

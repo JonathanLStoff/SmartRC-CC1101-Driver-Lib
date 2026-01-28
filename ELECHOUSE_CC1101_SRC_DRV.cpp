@@ -137,17 +137,24 @@ void ELECHOUSE_CC1101::GDO0_Set (void)
 *INPUT        :none
 *OUTPUT       :none
 ****************************************************************/
-void ELECHOUSE_CC1101::Reset (void)
+void ELECHOUSE_CC1101::Reset (SerialUSB Serial)
 {
 	digitalWrite(SS_PIN, LOW);
+  Serial.println("SS_PIN LOW");
 	delay(1);
 	digitalWrite(SS_PIN, HIGH);
+  Serial.println("SS_PIN HIGH");
 	delay(1);
 	digitalWrite(SS_PIN, LOW);
+  Serial.println("SS_PIN LOW again");
 	while(digitalRead(MISO_PIN));
+  Serial.println("MISO_PIN ready");
   SPI.transfer(CC1101_SRES);
+  Serial.println("SRES transferred");
   while(digitalRead(MISO_PIN));
+  Serial.println("MISO_PIN ready again");
 	digitalWrite(SS_PIN, HIGH);
+  Serial.println("SS_PIN HIGH end");
 }
 /****************************************************************
 *FUNCTION NAME:Init
