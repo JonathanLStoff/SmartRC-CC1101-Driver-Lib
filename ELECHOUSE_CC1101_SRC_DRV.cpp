@@ -172,7 +172,7 @@ void ELECHOUSE_CC1101::Init(SerialUSB Serial)
   digitalWrite(SCK_PIN, HIGH);
   digitalWrite(MOSI_PIN, LOW);
   Serial.println("Pins Set");
-  Reset();                    //CC1101 reset
+  Reset(Serial);                    //CC1101 reset
   Serial.println("CC1101 Reset");
   RegConfigSettings();            //CC1101 register config
   Serial.println("CC1101 Register Configured");
