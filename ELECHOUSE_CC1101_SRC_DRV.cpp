@@ -155,16 +155,22 @@ void ELECHOUSE_CC1101::Reset (void)
 *INPUT        :none
 *OUTPUT       :none
 ****************************************************************/
-void ELECHOUSE_CC1101::Init(void)
+void ELECHOUSE_CC1101::Init(SerialUSB Serial)
 {
   setSpi();
+  Serial.println("CC1101 Initializing...");
   SpiStart();                   //spi initialization
+  Serial.println("SPI Started");
   digitalWrite(SS_PIN, HIGH);
   digitalWrite(SCK_PIN, HIGH);
   digitalWrite(MOSI_PIN, LOW);
+  Serial.println("Pins Set");
   Reset();                    //CC1101 reset
+  Serial.println("CC1101 Reset");
   RegConfigSettings();            //CC1101 register config
+  Serial.println("CC1101 Register Configured");
   SpiEnd();
+  Serial.println("SPI Ended");
 }
 /****************************************************************
 *FUNCTION NAME:SpiWriteReg
